@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>Javascript Events and Dynamic Web Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script language="javascript" type="text/javascript" src="myscript.js"></script>
+</head>
+
+<body onResize="changeImage();" onLoad="alert('Website Loaded');">>
+
+    <h1>This is a h1 header Lola Puppy</h1>
+
+    <img src="einstein.jpg" id="einstein" onClick="alertme();" onDblClick="alert('You Double Clicked');"/>
+
+    <h3 id="h3style" onMouseOver="changeColor();" onMouseOut="changeAgain();">Rollover</h3>
+
+    <h3 id="h3style">This is a h3 header that is a child of the one above it.</h3>
+
+    <input type="button" onclick="count_rabbits()" value="Count rabbits!"></input>
+
+    <p id="first">This is a first paragraph</p>
+
+    <p id="second">This is a second paragraph</p>
+
+    <p id="third">This is a third paragraph</p>
+
+    <form name="formex">
+        <input type="checkbox" name="firstpara" onClick="showPara();" />First Paragraph<br />
+
+        <input type="checkbox" name="secondpara" onClick="showPara();" />Second Paragraph<br />
+
+        <input type="checkbox" name="thirdpara" onClick="showPara();" />Third Paragraph<br />
+
+        <p>Text input</p>
+        <input type="text" name="mousex" />Mouse X Position<br />
+        <input type="text" name="mousey" />Mouse Y Position<br />
+        <input type="text" name="keypress" />Key Pressed<br />
+        <input type="text" name="mousebutton" />Mouse Button Pressed<br />
+
+    </form>
+
+</body>
+</html>
