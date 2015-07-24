@@ -58,3 +58,5 @@ Hello world!
 ### Notes on python
 
 ### Notes on javascript
+
+* Leaftlet map tile providers - http://leaflet-extras.github.io/leaflet-providers/preview/index.html
