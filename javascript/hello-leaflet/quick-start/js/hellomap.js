@@ -41,3 +41,38 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 // add a marker with a pop up
 var marker = L.marker(coords).addTo(map)
 marker.bindPopup("<b>Hello Leaflet!</b><br>I am a popup.").openPopup();
+
+// add a circle
+var circle = L.circle([coords[0] + 0.001, coords[1] + 0.05], 500, {
+    color: "red",
+    fillColor: "#f03",
+    fillOpacity: "0.5"
+}).addTo(map);
+circle.bindPopup("I am a <em>circle</em>!");
+
+// add a polygon
+var polygon = L.polygon([
+    [38.27, -85.76],
+    [38.30, -85.80],
+    [38.32, -85.75],
+]).addTo(map);
+polygon.bindPopup("I am a <b>polygon</b>");
+
+// add a popup as a layer
+var popup = L.popup()
+    .setLatLng([38.23, -85.73])
+    .setContent("I am a <b>stand alone</b> popup")
+    .openOn(map);
+
+// handle a click event by displaying a popup with coords
+var popupevent = L.popup();
+
+// listener function which takes an event object
+function onMapClick(e) {
+    popupevent
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at: <br>" + e.latlng.lat.toString() + " , " + e.latlng.lng.toString())
+        .openOn(map);
+}
+
+map.on('click', onMapClick);
