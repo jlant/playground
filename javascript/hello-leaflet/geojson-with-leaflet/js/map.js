@@ -1,12 +1,12 @@
 var map = L.map('map').setView([39.74739, -105], 13);
 
 // add a tile layer from MapBox
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    maxZoom: 18,
-    id: 'jlant.n060cn4f',
-    accessToken: 'pk.eyJ1IjoiamxhbnQiLCJhIjoiaUVDZTh0MCJ9.Ml8pououQseLTfrQfUvX-Q'
-}).addTo(map);
+// L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+//     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+//     maxZoom: 18,
+//     id: 'jlant.n060cn4f',
+//     accessToken: 'pk.eyJ1IjoiamxhbnQiLCJhIjoiaUVDZTh0MCJ9.Ml8pououQseLTfrQfUvX-Q'
+// }).addTo(map);
 
 // add a tile layer from OpenStreetMap
 // L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -18,6 +18,12 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 // 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
 // });
 // Esri_WorldStreetMap.addTo(map);
+
+var OpenStreetMap_BlackAndWhite = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+	maxZoom: 18,
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+});
+OpenStreetMap_BlackAndWhite.addTo(map);
 
 var baseballIcon = L.icon({
     iconUrl: 'images/baseball-marker.png',
