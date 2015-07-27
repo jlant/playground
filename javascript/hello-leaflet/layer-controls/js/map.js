@@ -52,3 +52,6 @@ L.control.layers(baseLayers, overlays).addTo(map);
 
 // add a marker to map on click
 map.on('click', onMapClick);
+
+// add a scale to map
+L.control.scale().addTo(map);
