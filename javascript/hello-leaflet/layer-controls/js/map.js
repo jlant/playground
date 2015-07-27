@@ -32,6 +32,23 @@ var overlays = {
 	"Somewhere": somewhere
 };
 
+function onMapClick(e) {
+	var lat = e.latlng.lat;
+	var lng = e.latlng.lng;
+
+	if (typeof marker != 'undefined') {
+		map.removeLayer(marker);
+		marker = L.marker([lat, lng]).addTo(map);
+	}
+	else {
+		marker = L.marker([lat, lng]).addTo(map);
+	}
+
+	console.log(lat, lng)
+}
+
 // create the control
 L.control.layers(baseLayers, overlays).addTo(map);
-// L.control.layers(overlays).addTo(map);
+
+// add a marker to map on click
+map.on('click', onMapClick);
