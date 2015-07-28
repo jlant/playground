@@ -1,19 +1,25 @@
-// var map = L.map('map', {
-// 	zoomControl:true, maxZoom:19
-// }).fitBounds([[41.7903693514,-75.1118281801],[42.3809623103,-74.2409878263]]);
-
-var map = L.map('map', {
-    center: [40.5, -75],
-    zoom: 7
-})
-
 var feature_group = new L.featureGroup([]);
 
 var layerOrder = new Array();
 
-var basemap_0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
-}).addTo(map);
+var grayscale = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+});
+
+var streets = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+});
+
+var opentopomap = L.tileLayer('http://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+	attribution: 'Map data: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+});
+
+var map = L.map('map', {
+    center: [40.5, -75],
+    zoom: 7,
+    maxZoom: 19,
+    layers: [grayscale]
+})
 
 // create popup content for each layer
 function popup_drbbasin(feature, layer) {
@@ -132,10 +138,22 @@ cluster_group_usgsgages.addTo(map);
 
 feature_group.addTo(map);
 
-var baseMaps = {
-	'OSM Standard': basemap_0
+
+var baseLayers = {
+	"Grayscale": grayscale,
+	"Streets": streets,
+    "Topo": opentopomap
 };
 
-L.control.layers(baseMaps, {"usgsgages": cluster_group_usgsgages, "streams": streams, "waterbasins": waterbasins, "drbbasin": drbbasin}, {collapsed:false}).addTo(map);
+var overlays = {
+    "USGS gages": cluster_group_usgsgages,
+    "Streams": streams,
+    "Sample basins": waterbasins,
+    "DRB basin": drbbasin
+};
 
-L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
+// L.control.layers(baseLayers, {"usgsgages": cluster_group_usgsgages, "streams": streams, "waterbasins": waterbasins, "drbbasin": drbbasin}, {collapsed:false}).addTo(map);
+
+L.control.layers(baseLayers, overlays, {collapsed: true}).addTo(map);
+
+L.control.scale().addTo(map);
