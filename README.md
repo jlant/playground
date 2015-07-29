@@ -67,6 +67,12 @@ Start a local server
 $ python -m http.server
 ```
 
+Running Flask in debug mode so code changes can be viewed immediately
+```
+if __name__ == "__main__":
+    app.run(debug=True)
+```
+
 ### Notes on javascript
 
 hello.js
