@@ -57,6 +57,31 @@ Hello world!
 
 ### Notes on python
 
+hello.py
+```
+print("Hello world!")
+```
+
+Start a local server
+```
+$ python -m http.server
+```
+
 ### Notes on javascript
 
+hello.js
+```
+console.log("Hello World!")
+```
+
+---
+### Resources
+
+#### Python
+* Click - http://click.pocoo.org/4/
+* Jinja2 - http://jinja.pocoo.org/
+* Flask - http://flask.pocoo.org/
+    * Quickstart - http://flask.pocoo.org/docs/0.10/quickstart/#quickstart
+
+#### Javascript
 * Leaftlet map tile providers - http://leaflet-extras.github.io/leaflet-providers/preview/index.html
