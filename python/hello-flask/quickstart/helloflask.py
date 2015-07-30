@@ -1,12 +1,12 @@
-from flask import Flask
-from flask import render_template
+from flask import Flask, render_template, jsonify
+
 app = Flask(__name__)
 
 @app.route("/")
 def index():
     return "Index Page"
 
-# render the template and allow 2 different pages to be displayed: /hello/ will render Hello World; /hello/Jeremiah will render Hello Jeremiah
+# render the template html page and allow 2 different pages to be displayed: /hello/ will render Hello World; /hello/Jeremiah will render Hello Jeremiah
 @app.route("/hello/")
 @app.route("/hello/<name>")
 def hello(name=None):
@@ -31,6 +31,17 @@ def projects():
 @app.route("/about")
 def about():
     return "About page"
+
+# return a piece of data in json format
+@app.route("/somedata")
+def temperatures():
+    mean_temps = {"January": 25,
+                  "February": 20,
+                  "March": 45,
+                  "April": 52,
+                  "May": 66,
+                  "June": 70}
+    return jsonify(mean_temps)
 
 if __name__ == "__main__":
     app.run(debug=True)

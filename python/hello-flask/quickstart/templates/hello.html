@@ -3,6 +3,23 @@
     <head>
         <meta charset="utf-8">
         <title>Hello from Flask</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- // <script type="text/javascript">
+        //     console.log("hello there")
+        //
+        //     $(document).ready(function() {
+        //
+        //         $("#getData").click(function() {
+        //
+        //             $.getJSON("/somedata", function(dat) {
+        //                 console.log("Ajax received data!");
+        //                 console.dir(dat);
+        //             });
+        //         });
+        //     });
+        //
+        // </script> -->
+
     </head>
     <body>
         {% if name %}
@@ -10,5 +27,9 @@
         {% else %}
         <h1>Hello World!</h1>
         {% endif %}
+
+        <button type="button" name="button" id="getData">Get Data</button>
+
+        <script src="../static/js/getjson.js"></script>
     </body>
 </html>
