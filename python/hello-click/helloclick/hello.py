@@ -17,7 +17,7 @@ def cli(config, verbose, home_directory):
     config.verbose = verbose
     if home_directory is None:
         home_directory = "."
-    config.home_directory = home_directory    
+    config.home_directory = home_directory
 
 
 @cli.command()
@@ -32,9 +32,8 @@ def say(config, string, repeat, out):
     """ This script greets you."""
 
     if config.verbose:
-        click.echo("We are in verbose mode")    
+        click.echo("We are in verbose mode")
     click.echo("Home directory is {}".format(config.home_directory))
     for x in xrange(repeat):
         #click.echo("Hello %s!" % string)
         click.echo("Hello {}!".format(string), file=out)
-

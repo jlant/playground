@@ -84,6 +84,7 @@ console.log("Hello World!")
 ### Resources
 
 #### Python
+* pytest - http://pytest.org/latest/
 * Click - http://click.pocoo.org/4/
 * Jinja2 - http://jinja.pocoo.org/
 * Flask - http://flask.pocoo.org/
