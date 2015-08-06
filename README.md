@@ -72,8 +72,48 @@ Running Flask in debug mode so code changes can be viewed immediately
 if __name__ == "__main__":
     app.run(debug=True)
 ```
+or
+```
+if __name__ == "__main__":
+    app.debug = True
+    app.run()
+```
 
-Decorators - take a function as a parameter, do something with that function, and then returns a function
+List attributes and methods associated with various data types
+```
+dir("")  # string attributes and methods
+dir([])  # list attributes and methods
+
+def hello():
+    print "hello"
+
+dir(hello)
+```
+
+---
+#### Generators
+* **lazy** iterators
+* do not store all values in RAM (like a list)
+* constant size - only stores 1 value at a time
+* a state machine or stream
+* used to create a smaller memory footprint than lists 
+
+Generator function
+```
+def stream_file(filename):
+    f = open(filename)
+    for line in f:
+        yield line
+```
+
+Generator comprehension
+```
+squares = (num * num for num in nums)
+```
+
+---
+#### Decorators
+* take a function as a parameter, do something with that function, and then returns a function
 
 Decorators @syntax - sugar to sweeten a function
 ```
