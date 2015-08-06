@@ -73,6 +73,22 @@ if __name__ == "__main__":
     app.run(debug=True)
 ```
 
+Decorators - take a function as a parameter, do something with that function, and then returns a function
+
+Decorators @syntax - sugar to sweeten a function
+```
+def func(x, y):
+    return {"result": x + y}
+func = as_json(func)  # sending a function in as an argument and replacing the original function with the function being returned by the as_json function
+
+OR
+
+@as_json
+def func(x, y):
+    return {"result": x + y}
+
+```
+
 ### Notes on javascript
 
 hello.js
